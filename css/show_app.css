@@ -6,6 +6,7 @@
 }
 html,
 body {
+  width: 100%;
 }
 html {
   -ms-text-size-adjust: 100%;
@@ -195,29 +196,10 @@ html {
 body {
   position: relative;
   background: #fff;
-  font-family: '微软雅黑', "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
   font-weight: normal;
   font-size: 0.16rem;
-  font-family: "Blizzard","Arial","Helvetica","Segoe UI Symbol","Segoe MDL2 Assets","????????????","Microsoft YaHei","Hei SC","Segoe UI Symbol","Segoe MDL2 Assets",sans-serif;
-}
-body,
-input,
-textarea,
-select,
-button {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga", "kern";
-}
-@media only screen and (max-width: 640px) {
-  body {
-    word-wrap: break-word;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    -moz-hyphens: auto;
-    hyphens: auto;
-  }
+  font-family: \5FAE\8F6F\96C5\9ED1;
+  padding-bottom: 15px;
 }
 a {
   color: #0e90d2;
@@ -511,13 +493,13 @@ output {
   font-size: 0.13rem;
 }
 .zuopin-cnt-text {
-  margin-bottom: 0.15rem;
-  padding: 0 0.15rem;
+  padding: 0 0.15rem 15px;
   font-size: 0.14rem;
   line-height: 0.25rem;
 }
 .zuopin-cnt-list {
   position: relative;
+  overflow: hidden;
 }
 .zuopin-cnt-list:after {
   position: absolute;
@@ -530,7 +512,7 @@ output {
 }
 .zuopin-cnt-iframe,
 .zuopin-cnt-iframe iframe {
-  margin-bottom: 0.15rem;
+  padding-bottom: 15px;
   display: block;
   max-width: 100%;
   width: 100vw;
@@ -541,7 +523,7 @@ output {
 .zuopin-cnt-img,
 .zuopin-cnt-img img {
   width: 100%;
-  margin-bottom: 0.15rem;
+  padding-bottom: 15px;
   display: block;
 }
 .zuopin-cnt-title {
@@ -565,3 +547,4 @@ output {
   font-size: 0.18rem !important;
 }
 
+/*广告隐藏*/

@@ -144,7 +144,7 @@ $(function () {
           $('.backpwd-mode-1').show();
           $('.backpwd-mode-2').hide();
         } else {
-          window.location.href = 'login.html';
+          window.location.href = 'login';
         }
       });
       $('#phone,#code').bind('input propertychange', function () {
@@ -432,6 +432,11 @@ $(function () {
   //login.html
   if ($('[class^=login]').length > 0) {
     (function () {
+      $('.my-title-back').click(function () {
+        window.history.go(-1);
+      });
+    })();
+    (function () {
       $('.login-mode').click(function () {
         var text = $(this).text();
         if (text == '验证码登录') {
@@ -516,29 +521,33 @@ $(function () {
         return false;
       });
       $('#phonebtn').click(function () {
-        if (all.onoff) {
-          if ($(this).is('.active')) {
-            var phone = $.trim($('#phone').val());
-            var code = $.trim($('#code').val());
-            if (!phone.match(/^(1)\d{10}$/)) {
-              all.alertmessage('手机号不正确');
-            } else if (code == '') {
-              all.alertmessage('请输入验证码');
-            } else {
-              $.ajax({
-                type: 'post',
-                url: all.serverUrl + '/m/site/mobile-login',
-                data: {'mobile': phone, 'verify': code},
-                datatype: 'json',
-                success: function (data) {
-                  if (data.code == 200) {
-                    window.location.href = data.data.rurl;
-                  } else {
-                    all.alertmessage(data.msg);
-                  }
-                }
-              });
+        if (all.onoff && $(this).is('.active')) {
+          var phone = $.trim($('#phone').val());
+          var code = $.trim($('#code').val());
+          if (!phone.match(/^(1)\d{10}$/)) {
+            all.alertmessage('手机号不正确');
+          } else if (code == '') {
+            all.alertmessage('请输入验证码');
+          } else {
+            var siteurl = '/m/site/mobile-login';
+            var data = {'mobile': phone, 'verify': code};
+            if ($('#bind-phone').length > 0) {
+              siteurl = '/site/bind-third-party';
+              data = {'mobile': phone, 'code': code};
             }
+            $.ajax({
+              type: 'post',
+              url: all.serverUrl + siteurl,
+              data: data,
+              datatype: 'json',
+              success: function (data) {
+                if (data.code == 200) {
+                  window.location.href = data.data.rurl;
+                } else {
+                  all.alertmessage(data.msg);
+                }
+              }
+            });
           }
         }
         return false;
@@ -910,7 +919,7 @@ $(function () {
         var hour = minute * 60;
         var day = hour * 24;
         var month = day * 30;
-        var now = new Date().getTime()/1000;
+        var now = new Date().getTime() / 1000;
         var diffValue = now - dateTimeStamp;
         if (diffValue < 0) {
           return;
@@ -1007,6 +1016,11 @@ $(function () {
        请忽略getListDataFromNet的逻辑,这里仅仅是在本地模拟分页数据,本地演示用
        实际项目以您服务器接口返回的数据为准,无需本地处理分页.
        * */
+      // types-article
+      var posturl = '/m/works/index';
+      if($('.types-article').length > 0) {
+        posturl = 'http://localhost/api/works-list';
+      }
       function getListDataFromNet(curNavIndex, pageNum, successCallback, errorCallback) {
         var tag = $('.types-nav-ul > li[i=' + curNavIndex + ']').text();
         if (curNavIndex == 0) {
@@ -1014,8 +1028,7 @@ $(function () {
         }
         $.ajax({
           type: 'get',
-          // url: all.serverUrl + '/m/works/index?category_id=' + id + '&tag=' + tag + '&page=' + pageNum,
-          url: 'http://localhost/api/works-list?category_id=' + id + '&tag=' + tag + '&page=' + pageNum,
+          url: all.serverUrl + posturl + '?category_id=' + id + '&tag=' + tag + '&page=' + pageNum,
           datatype: 'json',
           success: function (data) {
             successCallback(data.data.list);
@@ -1059,7 +1072,7 @@ $(function () {
         $('.ziliaoedit-img-file').click();
       });
       $('.ziliaoedit-img-file').change(function () {
-        var file = $(this)[0].files[0];
+        // var file = $(this)[0].files[0];
         $.ajax({
           type: 'post',
           url: all.serverUrl + '/m/setting/avatar',
@@ -1095,39 +1108,58 @@ $(function () {
         }
         cityData.push(province);
       }
-      var sexSelect = new MobileSelect({
-        trigger: '#sexSelect',
-        title: '选择性别',
-        wheels: [{data: sexData}],
-        callback: function (indexArr, data) {
-          var sex = data[0].id;
-          $('#sex').val(sex);
-        }
-      });
-      var zhiyeSelect = new MobileSelect({
-        trigger: '#zhiyeSelect',
-        title: '选择职业',
-        wheels: [{data: zhiyeData}],
-        callback: function (indexArr, data) {
-          var zhiye = data[0].id;
-          $('#zhiye').val(zhiye);
-        }
-      });
-      var citySelect = new MobileSelect({
-        trigger: '#citySelect',
-        title: '选择地区',
-        wheels: [{data: cityData}],
-        callback: function (indexArr, data) {
-          var province = data[0].id;
-          var city = data[1].id;
-          $('#province').val(province);
-          $('#city').val(city);
-        }
-      });
+      if ($('#sexSelect').length > 0) {
+        var sexSelect = new MobileSelect({
+          trigger: '#sexSelect',
+          title: '选择性别',
+          wheels: [{data: sexData}],
+          callback: function (indexArr, data) {
+            var sex = data[0].id;
+            $('#sex').val(sex);
+          }
+        });
+      }
+      if ($('#zhiyeSelect').length > 0) {
+        var zhiyeSelect = new MobileSelect({
+          trigger: '#zhiyeSelect',
+          title: '选择职业',
+          wheels: [{data: zhiyeData}],
+          callback: function (indexArr, data) {
+            var zhiye = data[0].id;
+            $('#zhiye').val(zhiye);
+            $("#zhiye").trigger('input');
+          }
+        });
+      }
+      if ($('#citySelect').length > 0) {
+        var citySelect = new MobileSelect({
+          trigger: '#citySelect',
+          title: '选择地区',
+          wheels: [{data: cityData}],
+          callback: function (indexArr, data) {
+            var province = data[0].id;
+            var city = data[1].id;
+            $('#province').val(province);
+            $('#city').val(city);
+            $('#location').val(province+'-'+city);
+            $("#location").trigger('input');
+          }
+        });
+      }
       $('#jieshaoSelect').click(function () {
         $('.ziliaoedit-img,.ziliaoedit-cnt').hide();
         $('.ziliaoedit-cnt-area').show().focus();
         $('.ziliaoedit-title-submit').html('确定');
+      });
+      $('#nick,#location,#zhiye').bind('input propertychange', function () {
+        var nick = $('#nick').val();
+        var location = $('#location').val();
+        var zhiye = $('#zhiye').val();
+        if (nick.length > 0 && location.length > 0 && zhiye.length > 0) {
+          $('#infobtn').addClass('active');
+        } else {
+          $('#infobtn').removeClass('active');
+        }
       });
       $('#form1').submit(function () {
         if (all.onoff) {
@@ -1157,6 +1189,38 @@ $(function () {
                   all.alertmessage('资料修改成功');
                   window.setTimeout(function () {
                     window.location.href = data.data.url;
+                  }, 1000)
+                } else if (data.code == 400) {
+                  all.alertmessage(data.msg);
+                }
+              }
+            });
+          }
+        }
+        return false;
+      });
+      $('#form2').submit(function () {
+        if (all.onoff && $('#infobtn').is('.active')) {
+          var nick = $.trim($('#nick').val());
+          var location = $.trim($('#location').val());
+          var zhiye = $.trim($('#zhiye').val());
+          if (nick == '') {
+            all.alertmessage('请填写昵称');
+          } else if (location == '') {
+            all.alertmessage('请选择地区');
+          } else if (zhiye == '') {
+            all.alertmessage('请选择职业');
+          } else {
+            $.ajax({
+              type: 'post',
+              url: all.serverUrl + '/setting/fill-info',
+              data: $('#form2').serialize(),
+              datatype: 'json',
+              success: function (data) {
+                if (data.code == 200) {
+                  all.alertmessage('资料修改成功');
+                  window.setTimeout(function () {
+                    window.location.href = data.data.rurl;
                   }, 1000)
                 } else if (data.code == 400) {
                   all.alertmessage(data.msg);
