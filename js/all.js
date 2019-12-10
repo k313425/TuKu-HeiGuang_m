@@ -913,36 +913,6 @@ $(function () {
           mescrollArr[dataIndex].endErr();
         });
       }
-      // 匹配不同时间段的值
-      function getDateDiff(dateTimeStamp) {
-        var minute = 60;
-        var hour = minute * 60;
-        var day = hour * 24;
-        var month = day * 30;
-        var now = new Date().getTime() / 1000;
-        var diffValue = now - dateTimeStamp;
-        if (diffValue < 0) {
-          return;
-        }
-        var monthC = diffValue / month;
-        var weekC = diffValue / (7 * day);
-        var dayC = diffValue / day;
-        var hourC = diffValue / hour;
-        var minC = diffValue / minute;
-        if (monthC >= 1) {
-          result = "" + parseInt(monthC) + "月前";
-        } else if (weekC >= 1) {
-          result = "" + parseInt(weekC) + "周前";
-        } else if (dayC >= 1) {
-          result = "" + parseInt(dayC) + "天前";
-        } else if (hourC >= 1) {
-          result = "" + parseInt(hourC) + "小时前";
-        } else if (minC >= 1) {
-          result = "" + parseInt(minC) + "分钟前";
-        } else
-          result = "刚刚";
-        return result;
-      }
       /*设置列表数据
        * pageData 当前页的数据
        * dataIndex 数据属于哪个nav */
@@ -953,13 +923,13 @@ $(function () {
           if ($('.types-article').length > 0) {
             // 文章列表
             html += '<li>';
-            html += '<p class="types-article-author"><a href="' + pd.user_info.url + '"><img class="types-article-head" src="' + pd.user_info.avatar + '" /></a>' + pd.vusername + '</p>';
-            html += '<a class="types-article-cnt' + (pd.user_info.authentication > 0 ? ' vip' : '') + '" href="' + pd.url + '">';
+            html += '<p class="types-article-author"><a href="' + pd.uurl + '"><img class="types-article-head" src="' + pd.avatar + '" /></a>' + pd.vusername + '</p>';
+            html += '<a class="types-article-cnt" href="' + pd.surl + '">';
             html += '<p class="types-article-info"><span class="types-article-title">' + pd.title + '</span>';
-            html += '<span>' + pd.title + '</span></p>';
+            html += '<span>' + pd.description + '</span></p>';
             html += '<p class="types-article-img">';
             html += '<img class="types-article-img" src="' + pd.cover + '" />';
-            html += '<span class="types-article-time">' + getDateDiff(pd.add_time) + '</span>';
+            html += '<span class="types-article-time">' + pd.add_time + '</span>';
             html += '<span class="types-article-view">' + pd.view_num + '</span>';
             html += '</p>';
             html += '</a></li>';
@@ -1016,19 +986,22 @@ $(function () {
        请忽略getListDataFromNet的逻辑,这里仅仅是在本地模拟分页数据,本地演示用
        实际项目以您服务器接口返回的数据为准,无需本地处理分页.
        * */
-      // types-article
-      var posturl = '/m/works/index';
-      if($('.types-article').length > 0) {
-        posturl = 'http://localhost/api/works-list';
-      }
       function getListDataFromNet(curNavIndex, pageNum, successCallback, errorCallback) {
         var tag = $('.types-nav-ul > li[i=' + curNavIndex + ']').text();
+        var lurl = $('.types-nav-ul > li[i=' + curNavIndex + ']').attr('lurl');
         if (curNavIndex == 0) {
           tag = '';
         }
+        // types-article
+        var posturl = '';
+        if($('.types-zuopin').length > 0) {
+          posturl = all.serverUrl + '/m/works/index?category_id=' + id + '&tag=' + tag + '&page=' + pageNum;
+        } else {
+          posturl = all.serverUrl + lurl + (lurl.indexOf('?') > -1 ? '&' : '?') + 'page=' + pageNum ;
+        }
         $.ajax({
           type: 'get',
-          url: all.serverUrl + posturl + '?category_id=' + id + '&tag=' + tag + '&page=' + pageNum,
+          url: posturl,
           datatype: 'json',
           success: function (data) {
             successCallback(data.data.list);
@@ -1240,9 +1213,10 @@ $(function () {
       $('.zuopin-love-circle').click(function () {
         if (all.onoff) {
           var num = $('.zuopin-love-num').find('span');
+          console.log($('.zuopin-img-text').length)
           $.ajax({
             type: 'post',
-            url: all.serverUrl + '/m/like/add-works',
+            url: all.serverUrl + $('.zuopin-img-text').length > 0 ? '/like/img-text' : '/m/like/add-works',
             data: {id: id},
             datatype: 'json',
             success: function (data) {

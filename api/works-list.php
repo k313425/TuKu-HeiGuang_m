@@ -1,222 +1,78 @@
 <?php
 header('Content-Type:text/json;charset=utf-8');
 $date=[
-"code"=>200,
-"msg"=>"ok",
-"data"=>[
-"list"=>[
-[
-"app_work_corner_mark"=>'',
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567651209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"app_work_corner_mark"=>'http://192.168.2.73/img/huodong01.png',
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-],
-[
-"cover"=>"http://192.168.2.23/img/pho01.jpg",
-"title"=>"街拍写真",
-"url"=>"/m/works/show_67910.html",
-"view_num"=>"936",
-"add_time"=>"1567151209",
-"user_info"=>[
-"url"=>"/m/user/index?id=140614",
-"avatar"=>"http://192.168.2.23/img/pho01.jpg",
-"authentication"=>"1"
-],
-"vusername"=>"修图师柒風"
-]
-]
-]
+    "code"=>200,
+    "msg"=>"ok",
+    "data"=>[
+        "list"=>[
+            [
+                "app_work_corner_mark"=>'',
+                "cover"=>"http://localhost/img/pho01.jpg",
+                "title"=>"街拍写真",
+                "description"=>"阿斯顿范德萨发1111",
+                "surl"=>"/m/works/show_67910.html",
+                "view_num"=>"936",
+                "add_time"=>"2个月前",
+                "vusername"=>"修图师柒風",
+                "uurl"=>"/m/user/index?id=140614",
+                "avatar"=>"http://localhost/img/pho01.jpg",
+                "authentication"=>"1"
+            ],
+            [
+                "app_work_corner_mark"=>'',
+                "cover"=>"http://localhost/img/pho01.jpg",
+                "title"=>"街拍写真",
+                "description"=>"阿斯顿范德萨发1111",
+                "surl"=>"/m/works/show_67910.html",
+                "view_num"=>"936",
+                "add_time"=>"2个月前",
+                "vusername"=>"修图师柒風",
+                "uurl"=>"/m/user/index?id=140614",
+                "avatar"=>"http://localhost/img/pho01.jpg",
+                "authentication"=>"1"
+            ],
+             [
+                 "app_work_corner_mark"=>'',
+                 "cover"=>"http://localhost/img/pho01.jpg",
+                 "title"=>"街拍写真",
+                 "description"=>"阿斯顿范德萨发1111",
+                 "surl"=>"/m/works/show_67910.html",
+                 "view_num"=>"936",
+                 "add_time"=>"2个月前",
+                 "vusername"=>"修图师柒風",
+                 "uurl"=>"/m/user/index?id=140614",
+                 "avatar"=>"http://localhost/img/pho01.jpg",
+                 "authentication"=>"1"
+             ],
+              [
+                  "app_work_corner_mark"=>'',
+                  "cover"=>"http://localhost/img/pho01.jpg",
+                  "title"=>"街拍写真",
+                  "description"=>"阿斯顿范德萨发1111",
+                  "surl"=>"/m/works/show_67910.html",
+                  "view_num"=>"936",
+                  "add_time"=>"2个月前",
+                  "vusername"=>"修图师柒風",
+                  "uurl"=>"/m/user/index?id=140614",
+                  "avatar"=>"http://localhost/img/pho01.jpg",
+                  "authentication"=>"1"
+              ],
+               [
+                   "app_work_corner_mark"=>'',
+                   "cover"=>"http://localhost/img/pho01.jpg",
+                   "title"=>"街拍写真",
+                   "description"=>"阿斯顿范德萨发1111",
+                   "surl"=>"/m/works/show_67910.html",
+                   "view_num"=>"936",
+                   "add_time"=>"2个月前",
+                   "vusername"=>"修图师柒風",
+                   "uurl"=>"/m/user/index?id=140614",
+                   "avatar"=>"http://localhost/img/pho01.jpg",
+                   "authentication"=>"1"
+               ],
+
+        ]
+    ]
 ];
 
 echo json_encode($date, 320);
