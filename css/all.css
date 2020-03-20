@@ -7,7 +7,7 @@
 }
 html,
 body {
-    min-height: 100%;
+    min-height: 100%;types-zuopin
     height: 100%;
 }
 html {
@@ -672,7 +672,7 @@ output {
 /*index.html*/
 .index-banner {
     position: relative;
-    height: 2.15rem;
+    /*height: 2.15rem;*/
 }
 .index-banner-img {
     width: 100%;
@@ -697,20 +697,32 @@ output {
     padding: 0.2rem 0.1rem;
 }
 .index-types .swiper-slide {
-    height: 0.7rem;
+    /*height: 0.7rem;*/
 }
-.index-types .swiper-slide span, .index-types .swiper-slide img {
+.index-types .swiper-slide img {
+    display: block;
+    width: 100%;
+}
+.index-types .swiper-slide a:before {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    content: '';
     border-radius: 0.05rem;
-}
-.index-types .swiper-slide span {
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.3);
-    line-height: 0.7rem;
+}
+.index-types .swiper-slide span {
+    margin-top: -10px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 20px;
+    border-radius: 0.05rem;
+    z-index: 2;
     color: #fff;
     text-align: center;
 }
@@ -765,7 +777,7 @@ output {
 .index-article .sub img {
     display: block;
     width: 280px;
-    height: 175px;
+    /*height: 175px;*/
     border-radius: 0.05rem;
 }
 .index-article .sub a {
@@ -857,14 +869,14 @@ output {
     justify-content: space-between;
 }
 .index-list-ul > li {
-    width: 1.68rem;
+    width: 44.8vw;
     margin-bottom: 0.1rem;
     padding-bottom: 0.1rem;
     background-color: #fff;
 }
 .index-list-img {
-    width: 1.68rem;
-    height: 1.68rem;
+    width: 44.8vw;
+    height: 44.8vw;
     border-radius: 0.05rem;
 }
 .index-list-title {
@@ -887,7 +899,7 @@ output {
 }
 .index-list-num {
     padding-left: 0.2rem;
-    background: url(../images/tk-love.png) 0 center no-repeat;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABs0lEQVRYR+2X4VUCMRCEZytQK9AOxApkaECsQKlAqEA6EDqACtQGspSgFagd0EF8iwePO5K7cNzJH/KT25f9MjvZDYIjLzlyfpwAShVQ1SsAdwD6WakWAN5JfoRKl8U/AOimxFtMFEBVJwCeIh6ZkBxtf1PVMYDnSPwMwIjksvg9COCcW4jIbYVBZyQHFqOqlsBOXrZMNRYhdgAqTl5MMAVgp4qdvBi/gV5/yAFkNfxq+WqaCual1SoClNW9KS4z8drUeQDn3LeIXDaVKbLPkuRFTAHfcvLV9iQ3yhdL8C8AAG7WvSQH4JxbishZ2yqUKfCWdb7WGLz3n71erxPzgLnztbXsfxsPSFrj2r2G9kubN8F7/yMine1uGOqENki0JRXuSVqZNys4C1R1COClYYgpSds3t8qmYcqASWWck3wMBVe9Bw6GMNeLSDc0indmQYgwcdQGlahKngRgQXUgUpInA9SAmAMYxmSvvAUxZyXejqjh9jZhxBN97/0sMjNyXS7litT6X6CqnQzi2pJkHa4fey2XgdQCWG+YvYTPAYxT6t1ICVJk3SfmIAX2SRSLPQH8Ate9qSG5aC1EAAAAAElFTkSuQmCC') 0 center no-repeat;
     background-size: 0.16rem 0.16rem;
 }
 
@@ -1178,13 +1190,13 @@ output {
     justify-content: space-between;
 }
 .result-zuopin > li {
-    width: 1.68rem;
+    width: 44.8vw;
     margin: 0.1rem 0;
     background-color: #fff;
 }
 .result-zuopin-img {
-    width: 1.68rem;
-    height: 1.68rem;
+    width: 44.8vw;
+    height: 44.8vw;
     border-radius: 0.05rem;
 }
 .result-zuopin-title {
@@ -1353,6 +1365,7 @@ output {
     color: #000;
 }
 .types-zuopin {
+    padding: 0 0.1rem;
     display: -webkit-flex;
     display: flex;
     flex-flow: row wrap;
@@ -1360,7 +1373,7 @@ output {
 }
 .types-zuopin > li {
     position: relative;
-    width: 1.68rem;
+    width: 44.8vw;
     margin: 0.1rem 0;
     background-color: #fff;
 }
@@ -1372,8 +1385,8 @@ output {
     height: 20px;
 }
 .types-zuopin-img {
-    width: 1.68rem;
-    height: 1.68rem;
+    width: 44.8vw;
+    height: 44.8vw;
     border-radius: 0.05rem;
 }
 .types-zuopin-title {
